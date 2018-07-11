@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Task Application</title>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container">
+            <h1>タスクリスト</h1>
+
+            <div class="row">
+                <div>
+                    <a class="col-xs-2 col-xs-push-5 btn btn-success" th:href="@{/tasks/add}">新規追加</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-7">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="col-xs-2">タスク</th>
+                            <th class="col-xs-2">状　況</th>
+                            <th class="col-xs-1"></th>
+                            <th class="col-xs-1"></th>
+                            <th class="col-xs-1"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="task : ${tasklist}" th:object="${task}">
+                            <td th:text="*{title}"/>
+                            <td th:text="*{status}"/>
+                            <td><a class="btn btn-default btn-sm" th:href="@{/tasks/__*{id}__}">詳細</a></td>
+                            <td><a class="btn btn-warning btn-sm" th:href="@{/tasks/__*{id}__/edit}">更新</a></td>
+                            <td><form th:action="@{/tasks/__*{id}__}" th:method="DELETE"><button class="btn btn-danger btn-sm">削除</button></form></td>
+                       </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Task Application</title>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container">
+            <h1>タスクカード</h1>
+            <div class="alert alert-success" role="alert" th:if="${notice}" th:text="${notice}">フラッシュメッセージ</div>
+                <div class="form-horizontal" th:object="${task}">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">タスク</label>
+                        <div class="col-xs-4 control-label">
+                            <p class="text-left" th:text="*{title}"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">メ　モ</label>
+                        <div class="col-xs-4 control-label">
+                            <p class="text-left" th:text="*{memo}"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">状　況</label>
+                        <div class="col-xs-4 control-label">
+                            <p class="text-left" th:text="*{status}"></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">登録日</label>
+                        <div class="col-xs-4 control-label">
+                            <p class="text-left" th:text="*{createAt}"></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-xs-push-2 form-group">
+                        <a class="btn btn-warning btn-sm" th:href="@{/tasks/__*{id}__/edit}">更新</a>
+                        <a class="btn btn-default" th:href="@{/tasks}">一覧に戻る</a>
+                    </div>
+                </div>
+        </div>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </body>
+</html>

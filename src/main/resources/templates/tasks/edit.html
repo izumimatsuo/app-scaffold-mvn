@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Task Application</title>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container">
+            <h1>タスクカードの更新</h1>
+                <form class="form-horizontal" th:action="@{/tasks/__*{id}__}" th:method="PUT" th:object="${task}">
+                    <div class="form-group" th:classappend="${#fields.hasErrors('title')}? 'has-error'">
+                        <label class="col-xs-2 control-label">タスク</label>
+                        <div class="col-xs-4">
+                            <input class="form-control" th:field="*{title}" type="text" id="title"/>
+                        </div>
+                        <div class="col-xs-5 control-label" th:if="${#fields.hasErrors('title')}">
+                            <p class="text-left" th:errors="*{title}">入力エラー</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">メ　モ</label>
+                        <div class="col-xs-4">
+                            <input class="form-control" th:field="*{memo}" type="text" id="memo"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">状　況</label>
+                        <div class="col-xs-4" id="status" >
+                            <label class="radio-inline control-label" th:each="status:${statusTypes}">
+                                <input type="radio" th:text="${status.name()}" th:value="${status.name()}" th:field="*{status}" name="statusType"/>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-xs-push-2 form-group">
+                        <button class="btn btn-warning btn-sm">更新する</button>
+                        <a class="btn btn-default" th:href="@{/tasks}">一覧に戻る</a>
+                    </div>
+                </form>
+        </div>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </body>
+</html>
