@@ -3,9 +3,10 @@ package example.models;
 import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotNull;
-import lombok.Getter;
 
-@Getter
+import lombok.Data;
+
+@Data
 public class Task {
 
     private long id;
