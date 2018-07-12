@@ -96,6 +96,18 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
+			    <groupId>org.jacoco</groupId>
+			    <artifactId>jacoco-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
+			</plugin>
+			<plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <executions>
@@ -110,14 +122,9 @@
                 <configuration>
                     <failOnError>true</failOnError> 
                     <excludeFilterFile>config/findbugs/excludeFilter.xml</excludeFilterFile>
-                    <xmlOutput>true</xmlOutput>
-                    <outputEncoding>UTF-8</outputEncoding>
-                    <xmlOutputDirectory>target/site/findbugs</xmlOutputDirectory>
-                    <findbugsXmlOutputDirectory>target/site/findbugs</findbugsXmlOutputDirectory>
                 </configuration>
             </plugin>
 		</plugins>
 	</build>
-
 
 </project>
