@@ -1,7 +1,5 @@
 package example.models;
 
-import java.util.List;
-
 public interface TaskRepository {
 
     void save(Task task);
@@ -10,5 +8,5 @@ public interface TaskRepository {
 
     Task findOne(long id);
 
-    List<Task> findAll();
+    TaskList findAll();
 }

@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>タスクリスト</h1>
+            <h1 th:text="'タスクリスト（' + ${tasklist.counts()} + '件）'">タスクリスト</h1>
 
             <div class="row">
                 <div>
@@ -28,7 +28,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="task : ${tasklist}" th:object="${task}">
+                        <tr th:each="task : ${tasklist.asList()}" th:object="${task}">
                             <td th:text="*{title}"/>
                             <td th:text="*{status}"/>
                             <td><a class="btn btn-default btn-sm" th:href="@{/tasks/__*{id}__}">詳細</a></td>

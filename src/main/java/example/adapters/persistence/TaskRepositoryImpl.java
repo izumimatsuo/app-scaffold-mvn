@@ -1,11 +1,11 @@
 package example.adapters.persistence;
 
-import java.util.List;
-
-import example.models.Task;
-import example.models.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import example.models.Task;
+import example.models.TaskList;
+import example.models.TaskRepository;
 
 @Repository
 public class TaskRepositoryImpl implements TaskRepository {
@@ -33,7 +33,7 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
 
     @Override
-    public List<Task> findAll() {
-       return taskMapper.selectAll();
+    public TaskList findAll() {
+       return new TaskList(taskMapper.selectAll());
     }
 }

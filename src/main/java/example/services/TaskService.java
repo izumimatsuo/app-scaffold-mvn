@@ -1,11 +1,11 @@
 package example.services;
 
-import java.util.List;
-
-import example.models.Task;
-import example.models.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import example.models.Task;
+import example.models.TaskList;
+import example.models.TaskRepository;
 
 @Service
 public class TaskService {
@@ -17,7 +17,7 @@ public class TaskService {
         return taskRepository.findOne(id);
     }
 
-    public List<Task> findAll() {
+    public TaskList findAll() {
         return taskRepository.findAll();
     }
 

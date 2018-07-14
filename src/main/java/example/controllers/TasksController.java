@@ -1,10 +1,5 @@
 package example.controllers;
 
-import java.util.List;
-
-import example.models.StatusType;
-import example.models.Task;
-import example.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import example.models.StatusType;
+import example.models.Task;
+import example.models.TaskList;
+import example.services.TaskService;
 
 @Controller
 @RequestMapping("/tasks")
@@ -38,7 +38,7 @@ public class TasksController {
 
     @GetMapping
     public String index(Model model) {
-        List<Task> tasklist = taskService.findAll();
+        TaskList tasklist = taskService.findAll();
         model.addAttribute("tasklist", tasklist);
         return "tasks/index";
     }
