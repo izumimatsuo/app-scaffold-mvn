@@ -69,7 +69,7 @@ public class TasksController {
         }
         taskService.save(task);
         attributes.addFlashAttribute("notice", "タスクの登録に成功しました。");
-        return "redirect:/tasks/" + task.getId();
+        return "redirect:/tasks";
     }
 
     @PutMapping("/{id}")
@@ -83,8 +83,9 @@ public class TasksController {
     }
 
     @DeleteMapping("/{id}")
-    public String destroy(@PathVariable long id) {
+    public String destroy(@PathVariable long id, RedirectAttributes attributes) {
         taskService.delete(id);
+        attributes.addFlashAttribute("notice", "タスクの削除に成功しました。");
         return "redirect:/tasks";
     }
 }

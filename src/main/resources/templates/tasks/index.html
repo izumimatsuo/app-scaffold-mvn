@@ -9,6 +9,7 @@
     <body>
         <div class="container">
             <h1 th:text="'タスクリスト（' + ${tasklist.counts()} + '件）'">タスクリスト</h1>
+            <div class="alert alert-success" role="alert" th:if="${notice}" th:text="${notice}">フラッシュメッセージ</div>
 
             <div class="row">
                 <div>
@@ -22,19 +23,24 @@
                         <tr>
                             <th class="col-xs-2">タスク</th>
                             <th class="col-xs-2">状　況</th>
+                            <th class="col-xs-2"></th>
+                            <!--
                             <th class="col-xs-1"></th>
                             <th class="col-xs-1"></th>
                             <th class="col-xs-1"></th>
+                            -->
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="task : ${tasklist.asList()}" th:object="${task}">
                             <td th:text="*{title}"/>
                             <td th:text="*{status}"/>
-                            <td><a class="btn btn-default btn-sm" th:href="@{/tasks/__*{id}__}">詳細</a></td>
-                            <td><a class="btn btn-warning btn-sm" th:href="@{/tasks/__*{id}__/edit}">更新</a></td>
-                            <td><form th:action="@{/tasks/__*{id}__}" th:method="DELETE"><button class="btn btn-danger btn-sm">削除</button></form></td>
-                       </tr>
+                            <td>
+                                <a class="btn btn-default btn-sm" th:href="@{/tasks/__*{id}__}">詳細</a>
+                                <a class="btn btn-warning btn-sm" th:href="@{/tasks/__*{id}__/edit}">更新</a>
+                                <form style="display: inline" th:action="@{/tasks/__*{id}__}" th:method="DELETE"><button class="btn btn-danger btn-sm">削除</button></form>
+                            </td>
+                        </tr>
                     </tbody>
                     </table>
                 </div>
