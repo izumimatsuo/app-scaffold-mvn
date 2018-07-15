@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <h1 th:text="'タスクリスト（' + ${tasklist.counts()} + '件）'">タスクリスト</h1>
+            <h1 th:text="'タスク一覧［ ' + ${tasklist.counts()} + '件］'">タスクリスト</h1>
             <div class="alert alert-success" role="alert" th:if="${notice}" th:text="${notice}">フラッシュメッセージ</div>
 
             <div class="row">
@@ -21,8 +21,8 @@
                     <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th class="col-xs-2">タスク</th>
-                            <th class="col-xs-2">状　況</th>
+                            <th class="col-xs-3">タスク</th>
+                            <th class="col-xs-1">状　況</th>
                             <th class="col-xs-2"></th>
                         </tr>
                     </thead>
