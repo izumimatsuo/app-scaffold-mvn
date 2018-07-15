@@ -4,9 +4,13 @@ import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotNull;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
 public class Task {
 
     private long id;

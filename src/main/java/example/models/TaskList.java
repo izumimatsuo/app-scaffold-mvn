@@ -8,13 +8,13 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class TaskList {
 
-	private List<Task> taskList;
-	
+    private List<Task> taskList;
+
     public int counts() {
-    	return taskList.size();
+        return taskList.size();
     }
-    
-	public List<Task> asList() {
-		return Collections.unmodifiableList(taskList);
-	}
+
+    public List<Task> asList() {
+        return Collections.unmodifiableList(taskList);
+    }
 }
