@@ -15,7 +15,7 @@ public class Task {
 
     private long id;
 
-    @NotNull(message = "入力必須です")
+    @NotNull
     private String title;
     private String memo;
     private StatusType status;
