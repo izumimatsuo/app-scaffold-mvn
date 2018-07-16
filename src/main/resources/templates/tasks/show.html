@@ -32,7 +32,7 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label">登録日</label>
                         <div class="col-xs-4 control-label">
-                            <p class="text-left" th:text="*{createAt}"></p>
+                            <p class="text-left" th:text="*{#temporals.format(createAt, 'yyyy-MM-dd')}"></p>
                         </div>
                     </div>
                     <div class="col-xs-3 col-xs-push-2 form-group">
