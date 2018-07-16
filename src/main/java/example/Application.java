@@ -14,6 +14,7 @@ public class Application extends WebMvcConfigurerAdapter {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("redirect:/tasks");
+        registry.addViewController("/login").setViewName("login");
     }
 
     @Override

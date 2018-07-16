@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Task Application</title>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="box">
+   <h1>ログインフォームです</h1>
+   <form role="form" id="login" th:action="@{/login}" method="post">
+        <div th:if="${iserror}" style="color:red;">
+            <p>ログインできませんでした。やりなおしてください。</p>
+        </div>
+        <p>ユーザID</p>
+        <input type="text" id="username" name="username" autofocus="autofocus" />
+        <p>パスワード</p>
+        <input type="password" id="password" name="password" /><br/>
+        <button type="submit">ログイン</button>
+   </form>
+</div>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

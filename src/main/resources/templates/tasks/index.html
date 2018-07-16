@@ -13,7 +13,8 @@
 
             <div class="row">
                 <div>
-                    <a class="col-xs-2 col-xs-push-5 btn btn-success" th:href="@{/tasks/add}">新規追加</a>
+                    <a class="col-xs-2 col-xs-push-4 btn btn-success" th:href="@{/tasks/add}">新規追加</a>
+                    <form style="display: inline" role="form" id="logout" th:action="@{/logout}" th:method="POST"><button class="col-xs-1 col-xs-push-4 btn btn-danger">ログアウト</button></form>
                 </div>
             </div>
             <div class="row">
