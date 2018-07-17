@@ -84,6 +84,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>webjars-locator</artifactId>
 		</dependency>
@@ -151,6 +156,23 @@
                     <failOnError>true</failOnError> 
                     <excludeFilterFile>config/findbugs/excludeFilter.xml</excludeFilterFile>
                 </configuration>
+            </plugin>
+            <plugin>
+            	<groupId>org.apache.maven.plugins</groupId>
+            	<artifactId>maven-pmd-plugin</artifactId>
+            	<executions>
+					<execution>
+            			<phase>test</phase>
+            			<goals>
+            				<goal>check</goal>
+            				<goal>cpd-check</goal>
+            			</goals>
+            		</execution>
+            	</executions>
+            	<configuration>
+            		<linkXRef>false</linkXRef>
+            		<sourceEncoding>UTF-8</sourceEncoding>
+            	</configuration>
             </plugin>
 		</plugins>
 	</build>
