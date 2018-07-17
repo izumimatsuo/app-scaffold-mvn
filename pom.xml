@@ -171,7 +171,6 @@
             	</executions>
             	<configuration>
             		<linkXRef>false</linkXRef>
-            		<sourceEncoding>UTF-8</sourceEncoding>
             	</configuration>
             </plugin>
 		</plugins>
