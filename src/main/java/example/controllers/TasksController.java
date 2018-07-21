@@ -38,7 +38,7 @@ public class TasksController {
 
     @GetMapping
     public String index(Model model) {
-        TaskList tasklist = taskService.findAll();
+        TaskList tasklist = taskService.listAll();
         model.addAttribute("task_counts", tasklist.counts());
         model.addAttribute("task_list", tasklist.asList());
         return "tasks/index";

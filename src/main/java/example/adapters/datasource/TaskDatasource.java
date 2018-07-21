@@ -33,7 +33,7 @@ public class TaskDatasource implements TaskRepository {
     }
 
     @Override
-    public TaskList findAll() {
+    public TaskList listAll() {
        return new TaskList(taskMapper.selectAll());
     }
 }

@@ -8,5 +8,5 @@ public interface TaskRepository {
 
     Task findBy(long id);
 
-    TaskList findAll();
+    TaskList listAll();
 }

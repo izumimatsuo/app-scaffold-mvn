@@ -17,8 +17,8 @@ public class TaskService {
         return taskRepository.findBy(id);
     }
 
-    public TaskList findAll() {
-        return taskRepository.findAll();
+    public TaskList listAll() {
+        return taskRepository.listAll();
     }
 
     public void save(Task task) {
