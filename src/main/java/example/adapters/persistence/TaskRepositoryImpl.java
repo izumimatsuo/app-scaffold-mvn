@@ -1,17 +1,17 @@
 package example.adapters.persistence;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import example.models.Task;
 import example.models.TaskList;
 import example.models.TaskRepository;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Repository
 public class TaskRepositoryImpl implements TaskRepository {
 
-    @Autowired
-    private TaskMapper taskMapper;
+    private final TaskMapper taskMapper;
 
     @Override
     public void save(Task task) {
