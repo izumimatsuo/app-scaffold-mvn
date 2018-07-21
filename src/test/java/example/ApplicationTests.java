@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class ApplicationTests {
 
     @Test
-    public void test_アプリケーションが正常に起動すること() throws Exception {
+    public void アプリケーションが正常に起動すること() throws Exception {
         Application.main(new String[0]);
         assertTrue(true);
     }
