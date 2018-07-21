@@ -23,7 +23,7 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 @Transactional
 @AutoConfigureMockMvc
-public class TasksControllerTests {
+public class TaskControllerTests {
 
     @Autowired
     private MockMvc mockMvc;
