@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="container">
-            <h1 th:text="'タスク一覧［ ' + ${tasklist.counts()} + '件］'">タスクリスト</h1>
+            <h1 th:text="'タスク一覧［ ' + ${task_counts} + '件］'">タスクリスト</h1>
             <div class="alert alert-success" role="alert" th:if="${notice}" th:text="${notice}">フラッシュメッセージ</div>
 
             <div class="row">
@@ -28,7 +28,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="task : ${tasklist.asList()}" th:object="${task}">
+                        <tr th:each="task : ${task_list}" th:object="${task}">
                             <td th:text="*{title}"/>
                             <td th:text="*{status}"/>
                             <td>
