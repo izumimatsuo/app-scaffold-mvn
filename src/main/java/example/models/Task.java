@@ -15,7 +15,7 @@ public class Task {
 
     private long id;
 
-    @NotNull
+    @NotNull(message = "タスクを入力してください。")
     private String title;
     private String memo;
     private StatusType status;
