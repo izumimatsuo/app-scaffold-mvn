@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 
 @Getter
@@ -17,6 +19,7 @@ public class Task {
     private StatusType status;
     private LocalDateTime createAt;
 
+    @JsonIgnore
     public boolean isNew() {
         return id == 0;
     }
