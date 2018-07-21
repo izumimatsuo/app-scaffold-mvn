@@ -28,7 +28,7 @@ public class TaskDatasource implements TaskRepository {
     }
 
     @Override
-    public Task findOne(long id) {
+    public Task findBy(long id) {
         return taskMapper.select(id);
     }
 

@@ -13,8 +13,8 @@ public class TaskService {
 
     private final TaskRepository taskRepository;
 
-    public Task findOne(long id) {
-        return taskRepository.findOne(id);
+    public Task findBy(long id) {
+        return taskRepository.findBy(id);
     }
 
     public TaskList findAll() {

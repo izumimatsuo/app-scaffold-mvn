@@ -6,7 +6,7 @@ public interface TaskRepository {
 
     void delete(long id);
 
-    Task findOne(long id);
+    Task findBy(long id);
 
     TaskList findAll();
 }

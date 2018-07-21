@@ -46,7 +46,7 @@ public class TasksController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable long id, Model model) {
-        Task task = taskService.findOne(id);
+        Task task = taskService.findBy(id);
         model.addAttribute("task", task);
         return "tasks/show";
     }
@@ -58,7 +58,7 @@ public class TasksController {
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable long id, Model model) {
-        Task task = taskService.findOne(id);
+        Task task = taskService.findBy(id);
         model.addAttribute("task", task);
         return "tasks/edit";
     }
