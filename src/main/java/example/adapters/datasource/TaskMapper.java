@@ -34,5 +34,5 @@ public interface TaskMapper {
 
     @Delete({"DELETE FROM tasks",
              "WHERE id = #{id}"})
-    void delete(long id);
+    void delete(Task task);
 }

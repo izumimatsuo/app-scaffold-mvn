@@ -85,7 +85,8 @@ public class TasksController {
 
     @DeleteMapping("/{id}")
     public String destroy(@PathVariable long id, RedirectAttributes attributes) {
-        taskService.delete(id);
+        Task task = taskService.findBy(id);
+        taskService.delete(task);
         attributes.addFlashAttribute("notice", "タスクの削除に成功しました。");
         return "redirect:/tasks";
     }

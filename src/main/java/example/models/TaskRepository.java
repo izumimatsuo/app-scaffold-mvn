@@ -4,7 +4,7 @@ public interface TaskRepository {
 
     void save(Task task);
 
-    void delete(long id);
+    void delete(Task task);
 
     Task findBy(long id);
 

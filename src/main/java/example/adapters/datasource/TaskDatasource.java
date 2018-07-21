@@ -23,8 +23,8 @@ public class TaskDatasource implements TaskRepository {
     }
 
     @Override
-    public void delete(long id) {
-        taskMapper.delete(id);
+    public void delete(Task task) {
+        taskMapper.delete(task);
     }
 
     @Override
