@@ -1,4 +1,4 @@
-package example.adapters.persistence;
+package example.adapters.datasource;
 
 import org.springframework.stereotype.Repository;
 
@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Repository
-public class TaskRepositoryImpl implements TaskRepository {
+public class TaskDatasource implements TaskRepository {
 
     private final TaskMapper taskMapper;
 

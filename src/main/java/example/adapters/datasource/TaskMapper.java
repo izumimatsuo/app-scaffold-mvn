@@ -1,4 +1,4 @@
-package example.adapters.persistence;
+package example.adapters.datasource;
 
 import java.util.List;
 
