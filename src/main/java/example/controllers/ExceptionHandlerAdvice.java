@@ -13,12 +13,12 @@ import example.services.ApplicationException;
 @ControllerAdvice
 public class ExceptionHandlerAdvice {
 
-    private static final Log log = LogFactory.getLog(ExceptionHandlerAdvice.class);
-    
+    private final Log log = LogFactory.getLog(ExceptionHandlerAdvice.class);
+
     @ExceptionHandler(ApplicationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ModelAndView handleException(ApplicationException exception) {
-        
+
         log.error("Application Error.", exception);
         ModelAndView view = new ModelAndView("error", HttpStatus.BAD_REQUEST);
         view.addObject("status", HttpStatus.BAD_REQUEST.value());

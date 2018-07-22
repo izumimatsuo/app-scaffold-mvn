@@ -101,4 +101,12 @@ public class TaskControllerTests {
             .andExpect(status().isFound())
             .andExpect(view().name("redirect:/tasks"));
     }
+
+    @Test
+    @WithMockUser
+    public void タスク参照してエラーリクエストとなること() throws Exception {
+        mockMvc.perform(delete("/tasks/10").with(csrf()))
+            .andExpect(status().isBadRequest())
+            .andExpect(view().name("error"));
+    }
 }

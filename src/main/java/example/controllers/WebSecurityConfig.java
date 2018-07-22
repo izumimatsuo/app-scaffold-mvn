@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .logout()
                 .logoutSuccessUrl("/login")
                 .permitAll();
-        
+
         http.csrf().ignoringAntMatchers("/api/**");
     }
 
