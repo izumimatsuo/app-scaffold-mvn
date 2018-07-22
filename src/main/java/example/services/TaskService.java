@@ -14,7 +14,11 @@ public class TaskService {
     private final TaskRepository taskRepository;
 
     public Task findBy(long id) {
-        return taskRepository.findBy(id);
+        Task task = taskRepository.findBy(id);
+        if (task == null) {
+            throw new ApplicationException();
+        }
+        return task;
     }
 
     public TaskList listAll() {
