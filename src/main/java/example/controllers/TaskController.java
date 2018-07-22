@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import example.models.StatusType;
-import example.models.Task;
-import example.models.TaskList;
+import example.models.task.StatusType;
+import example.models.task.Task;
+import example.models.task.TaskList;
 import example.services.TaskService;
 import lombok.RequiredArgsConstructor;
 

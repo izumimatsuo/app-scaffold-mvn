@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import example.models.Task;
-import example.models.TaskList;
+import example.models.task.Task;
+import example.models.task.TaskList;
 import example.services.TaskService;
 import lombok.RequiredArgsConstructor;
 
