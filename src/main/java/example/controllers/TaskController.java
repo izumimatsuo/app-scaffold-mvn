@@ -1,6 +1,5 @@
 package example.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,13 +17,14 @@ import example.models.StatusType;
 import example.models.Task;
 import example.models.TaskList;
 import example.services.TaskService;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/tasks")
-public class TasksController {
+public class TaskController {
 
-    @Autowired
-    private TaskService taskService;
+    private final TaskService taskService;
 
     @ModelAttribute("task")
     Task setupTask() {
@@ -38,14 +38,15 @@ public class TasksController {
 
     @GetMapping
     public String index(Model model) {
-        TaskList tasklist = taskService.findAll();
-        model.addAttribute("tasklist", tasklist);
+        TaskList tasklist = taskService.listAll();
+        model.addAttribute("task_counts", tasklist.counts());
+        model.addAttribute("task_list", tasklist.asList());
         return "tasks/index";
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable long id, Model model) {
-        Task task = taskService.findOne(id);
+        Task task = taskService.findBy(id);
         model.addAttribute("task", task);
         return "tasks/show";
     }
@@ -57,7 +58,7 @@ public class TasksController {
 
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable long id, Model model) {
-        Task task = taskService.findOne(id);
+        Task task = taskService.findBy(id);
         model.addAttribute("task", task);
         return "tasks/edit";
     }
@@ -84,7 +85,8 @@ public class TasksController {
 
     @DeleteMapping("/{id}")
     public String destroy(@PathVariable long id, RedirectAttributes attributes) {
-        taskService.delete(id);
+        Task task = taskService.findBy(id);
+        taskService.delete(task);
         attributes.addFlashAttribute("notice", "タスクの削除に成功しました。");
         return "redirect:/tasks";
     }

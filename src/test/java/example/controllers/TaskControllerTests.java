@@ -23,14 +23,14 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 @Transactional
 @AutoConfigureMockMvc
-public class TasksControllerTests {
+public class TaskControllerTests {
 
     @Autowired
     private MockMvc mockMvc;
     
     @Test
     @WithMockUser
-    public void test_タスク一覧画面が表示されること() throws Exception {
+    public void タスク一覧画面が表示されること() throws Exception {
         mockMvc.perform(get("/tasks"))
             .andExpect(status().isOk())
             .andExpect(view().name("tasks/index"));
@@ -38,7 +38,7 @@ public class TasksControllerTests {
 
     @Test
     @WithMockUser
-    public void test_タスク詳細画面が表示されること() throws Exception {
+    public void タスク詳細画面が表示されること() throws Exception {
         mockMvc.perform(get("/tasks/1"))
             .andExpect(status().isOk())
             .andExpect(view().name("tasks/show"));
@@ -46,7 +46,7 @@ public class TasksControllerTests {
 
     @Test
     @WithMockUser
-    public void test_タスク登録画面が表示されること() throws Exception {
+    public void タスク登録画面が表示されること() throws Exception {
         mockMvc.perform(get("/tasks/add"))
             .andExpect(status().isOk())
             .andExpect(view().name("tasks/add"));
@@ -54,7 +54,7 @@ public class TasksControllerTests {
 
     @Test
     @WithMockUser
-    public void test_タスク登録して入力エラーとなること() throws Exception {
+    public void タスク登録して入力エラーとなること() throws Exception {
         mockMvc.perform(post("/tasks").with(csrf()))
             .andExpect(status().isOk())
             .andExpect(model().hasErrors())
@@ -63,7 +63,7 @@ public class TasksControllerTests {
 
     @Test
     @WithMockUser
-    public void test_タスク登録して成功すること() throws Exception {
+    public void タスク登録して成功すること() throws Exception {
         mockMvc.perform(post("/tasks").with(csrf()).param("title", "テストを実行する").param("status", "未実行"))
             .andExpect(status().isFound())
             .andExpect(view().name("redirect:/tasks"));
@@ -71,7 +71,7 @@ public class TasksControllerTests {
 
     @Test
     @WithMockUser
-    public void test_タスク更新画面が表示されること() throws Exception {
+    public void タスク更新画面が表示されること() throws Exception {
         mockMvc.perform(get("/tasks/1/edit"))
             .andExpect(status().isOk())
             .andExpect(view().name("tasks/edit"));
@@ -79,7 +79,7 @@ public class TasksControllerTests {
 
     @Test
     @WithMockUser
-    public void test_タスク更新して入力エラーとなること() throws Exception {
+    public void タスク更新して入力エラーとなること() throws Exception {
         mockMvc.perform(put("/tasks/1").with(csrf()))
             .andExpect(status().isOk())
             .andExpect(model().hasErrors())
@@ -88,7 +88,7 @@ public class TasksControllerTests {
 
     @Test
     @WithMockUser
-    public void test_タスク更新して成功すること() throws Exception {
+    public void タスク更新して成功すること() throws Exception {
         mockMvc.perform(put("/tasks/1").with(csrf()).param("id", "1").param("title", "テストを実行する").param("status", "実行中"))
             .andExpect(status().isFound())
             .andExpect(view().name("redirect:/tasks/1"));
@@ -96,9 +96,17 @@ public class TasksControllerTests {
 
     @Test
     @WithMockUser
-    public void test_タスク削除して成功すること() throws Exception {
+    public void タスク削除して成功すること() throws Exception {
         mockMvc.perform(delete("/tasks/1").with(csrf()))
             .andExpect(status().isFound())
             .andExpect(view().name("redirect:/tasks"));
+    }
+
+    @Test
+    @WithMockUser
+    public void タスク参照してエラーリクエストとなること() throws Exception {
+        mockMvc.perform(delete("/tasks/10").with(csrf()))
+            .andExpect(status().isBadRequest())
+            .andExpect(view().name("error"));
     }
 }

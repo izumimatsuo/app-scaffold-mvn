@@ -1,17 +1,17 @@
-package example.adapters.persistence;
+package example.adapters.datasource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import example.models.Task;
 import example.models.TaskList;
 import example.models.TaskRepository;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Repository
-public class TaskRepositoryImpl implements TaskRepository {
+public class TaskDatasource implements TaskRepository {
 
-    @Autowired
-    private TaskMapper taskMapper;
+    private final TaskMapper taskMapper;
 
     @Override
     public void save(Task task) {
@@ -23,17 +23,17 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
 
     @Override
-    public void delete(long id) {
-        taskMapper.delete(id);
+    public void delete(Task task) {
+        taskMapper.delete(task);
     }
 
     @Override
-    public Task findOne(long id) {
+    public Task findBy(long id) {
         return taskMapper.select(id);
     }
 
     @Override
-    public TaskList findAll() {
+    public TaskList listAll() {
        return new TaskList(taskMapper.selectAll());
     }
 }

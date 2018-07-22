@@ -4,9 +4,9 @@ public interface TaskRepository {
 
     void save(Task task);
 
-    void delete(long id);
+    void delete(Task task);
 
-    Task findOne(long id);
+    Task findBy(long id);
 
-    TaskList findAll();
+    TaskList listAll();
 }
