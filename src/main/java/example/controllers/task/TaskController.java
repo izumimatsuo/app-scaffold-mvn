@@ -1,4 +1,4 @@
-package example.controllers;
+package example.controllers.task;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

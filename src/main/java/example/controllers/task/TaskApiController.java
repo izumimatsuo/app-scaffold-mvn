@@ -1,4 +1,4 @@
-package example.controllers;
+package example.controllers.task;
 
 import java.util.List;
 

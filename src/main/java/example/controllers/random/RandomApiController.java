@@ -1,4 +1,4 @@
-package example.controllers;
+package example.controllers.random;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
