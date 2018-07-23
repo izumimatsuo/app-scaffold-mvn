@@ -2,9 +2,9 @@ package example.adapters.datasource;
 
 import org.springframework.stereotype.Repository;
 
-import example.models.Task;
-import example.models.TaskList;
-import example.models.TaskRepository;
+import example.models.task.Task;
+import example.models.task.TaskList;
+import example.models.task.TaskRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

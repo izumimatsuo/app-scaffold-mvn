@@ -1,4 +1,4 @@
-package example.models;
+package example.models.task;
 
 public enum StatusType {
 
