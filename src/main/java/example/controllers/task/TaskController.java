@@ -1,5 +1,6 @@
 package example.controllers.task;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,14 +18,13 @@ import example.models.task.StatusType;
 import example.models.task.Task;
 import example.models.task.TaskList;
 import example.services.TaskService;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Controller
 @RequestMapping("/tasks")
 public class TaskController {
 
-    private final TaskService taskService;
+    @Autowired
+    private TaskService taskService;
 
     @ModelAttribute("task")
     Task setupTask() {

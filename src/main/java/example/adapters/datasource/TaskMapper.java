@@ -32,7 +32,7 @@ public interface TaskMapper {
     @Update({"UPDATE tasks",
              "SET title = #{title}, memo = #{memo}, status = #{status}",
              "WHERE id = #{id}"})
-    void update(Task task);
+    int update(Task task);
 
     @Delete({"DELETE FROM tasks",
              "WHERE id = #{id}"})

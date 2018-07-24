@@ -2,25 +2,24 @@ package example.models.task;
 
 import java.time.LocalDateTime;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotBlank;
 
 import lombok.Getter;
 
 @Getter
 public class Task {
 
+    private static final int MEMO_MAX_SIZE = 10;
+
     private long id;
 
-    @NotNull(message = "タスクを入力してください。")
+    @NotBlank(message = "タスクを入力してください。")
     private String title;
+    @Size(max = MEMO_MAX_SIZE, message = "メモは{1}文字以内で入力してください。")
     private String memo;
     private StatusType status;
     private LocalDateTime createAt;
 
-    @JsonIgnore
-    public boolean isNew() {
-        return id == 0;
-    }
 }

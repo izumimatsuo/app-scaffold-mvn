@@ -2,6 +2,7 @@ package example.controllers.task;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,14 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 import example.models.task.Task;
 import example.models.task.TaskList;
 import example.services.TaskService;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/tasks")
 public class TaskApiController {
 
-    private final TaskService taskService;
+    @Autowired
+    private TaskService taskService;
 
     @GetMapping
     public List<Task> index() {
