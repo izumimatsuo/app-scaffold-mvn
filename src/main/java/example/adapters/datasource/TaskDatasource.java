@@ -15,11 +15,10 @@ public class TaskDatasource implements TaskRepository {
 
     @Override
     public void save(Task task) {
-        if (task.isNew()) {
+        int result = taskMapper.update(task);
+        if (result == 0) {
             taskMapper.insert(task);
-            return;
         }
-        taskMapper.update(task);
     }
 
     @Override
