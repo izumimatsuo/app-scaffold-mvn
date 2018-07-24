@@ -11,7 +11,7 @@ import example.models.random.RandomRepository;
 public class RandomRestoperation implements RandomRepository {
 
     private RestOperations restOperations;
-    
+
     public RandomRestoperation(RestTemplateBuilder restTemplateBuilder) {
         restOperations = restTemplateBuilder.build();
     }

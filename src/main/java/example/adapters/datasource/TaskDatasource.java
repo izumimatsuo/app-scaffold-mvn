@@ -1,17 +1,17 @@
 package example.adapters.datasource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import example.models.task.Task;
 import example.models.task.TaskList;
 import example.models.task.TaskRepository;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Repository
 public class TaskDatasource implements TaskRepository {
 
-    private final TaskMapper taskMapper;
+    @Autowired
+    private TaskMapper taskMapper;
 
     @Override
     public void save(Task task) {
