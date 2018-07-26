@@ -1,26 +1,38 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head>
-        <meta charset="utf-8"/>
+	<head>
+		<meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>Task Application</title>
+        <title>Scaffold Application</title>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
-</head>
-<body>
-<div class="box">
-   <h1>ログインフォームです</h1>
-   <form role="form" id="login" th:action="@{/login}" method="post">
-        <div th:if="${iserror}" style="color:red;">
-            <p>ログインできませんでした。やりなおしてください。</p>
-        </div>
-        <p>ユーザID</p>
-        <input type="text" id="username" name="username" autofocus="autofocus" />
-        <p>パスワード</p>
-        <input type="password" id="password" name="password" /><br/>
-        <button type="submit">ログイン</button>
-   </form>
-</div>
-        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-</body>
+	</head>
+	<body>
+    <div class="row">
+		<div class="col-md-6 col-md-offset-2">
+			<h1>ようこそ</h1>
+			<form th:action="@{/login}" method="post" class="form-horizontal">
+			<div th:if="${param.error}" style="color:red;">
+				<p>ログインできませんでした。やりなおしてください。</p>
+			</div>
+			<div class="form-group">
+				<div class="col-md-5">
+					<input type="text" class="form-control" id="username" name="username" placeholder="ユーザー名" /><br />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-5">
+					<input type="password" class="form-control" id="password" name="password" placeholder="パスワード" /><br />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-md-5">
+					<button type="submit" class="btn btn-primary btn-block">ログイン</button>
+				</div>
+			</div>
+			</form>      
+		</div>
+	</div>
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	</body>
 </html>
