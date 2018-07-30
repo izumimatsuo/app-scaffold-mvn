@@ -1,4 +1,4 @@
-package example.adapters.datasource;
+package example.adapters.datasource.task;
 
 import java.util.List;
 

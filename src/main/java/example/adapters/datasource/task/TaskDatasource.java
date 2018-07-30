@@ -1,4 +1,4 @@
-package example.adapters.datasource;
+package example.adapters.datasource.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
