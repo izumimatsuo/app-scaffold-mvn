@@ -15,7 +15,7 @@ public class UserAccount {
     public UserAccount() {
         this.id = 0L;
         this.username = "";
-        this.password = "";
+        this.password = null;
         this.authority = "";
         this.nickname = "";
         this.enabled = true;

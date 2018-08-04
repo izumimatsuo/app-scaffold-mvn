@@ -69,7 +69,7 @@ public class TaskController {
             return "tasks/add";
         }
         taskService.save(task);
-        attributes.addFlashAttribute("notice", "タスクの登録に成功しました。");
+        addFlashMessage(attributes, "タスクの登録に成功しました。");
         return "redirect:/tasks";
     }
 
@@ -79,7 +79,7 @@ public class TaskController {
             return "tasks/edit";
         }
         taskService.save(task);
-        attributes.addFlashAttribute("notice", "タスクの更新に成功しました。");
+        addFlashMessage(attributes, "タスクの更新に成功しました。");
         return "redirect:/tasks/" + id;
     }
 
@@ -87,7 +87,11 @@ public class TaskController {
     public String destroy(@PathVariable long id, RedirectAttributes attributes) {
         Task task = taskService.findBy(id);
         taskService.delete(task);
-        attributes.addFlashAttribute("notice", "タスクの削除に成功しました。");
+        addFlashMessage(attributes, "タスクの削除に成功しました。");
         return "redirect:/tasks";
+    }
+
+    private void addFlashMessage(RedirectAttributes attributes, String message) {
+        attributes.addFlashAttribute("notice", message);
     }
 }

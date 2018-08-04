@@ -27,8 +27,7 @@ public class TaskApiController {
 
     @GetMapping("/{id}")
     public Task show(@PathVariable long id) {
-        Task task = taskService.findBy(id);
-        return task;
+        return taskService.findBy(id);
     }
 
 }
