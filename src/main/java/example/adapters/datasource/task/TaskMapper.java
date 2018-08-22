@@ -26,7 +26,8 @@ public interface TaskMapper {
 
     @Insert({"INSERT INTO tasks (title, memo, status)",
              "VALUES (#{title}, #{memo}, #{status})"})
-    @SelectKey(statement = "call identity()", keyProperty = "id", before = false, resultType = long.class)
+    @SelectKey(statement = "call identity()", keyProperty = "id", before = false,
+                resultType = long.class)
     void insert(Task task);
 
     @Update({"UPDATE tasks",
