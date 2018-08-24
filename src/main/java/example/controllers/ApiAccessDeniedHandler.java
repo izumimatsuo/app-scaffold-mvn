@@ -19,7 +19,7 @@ public class ApiAccessDeniedHandler implements AccessDeniedHandler {
         response.setContentType("application/json");
         response.setCharacterEncoding("utf-8");
         response.getWriter()
-        .println("{\"msg\":\"Authorization Failed...\"}");
+            .println("{\"msg\":\"Authorization Failed...\"}");
     }
 
 }
