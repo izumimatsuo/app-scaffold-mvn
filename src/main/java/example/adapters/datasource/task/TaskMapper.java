@@ -7,10 +7,9 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.Options;
 
 import example.models.task.Task;
-
-import org.apache.ibatis.annotations.SelectKey;
 
 @Mapper
 public interface TaskMapper {
@@ -26,7 +25,7 @@ public interface TaskMapper {
 
     @Insert({"INSERT INTO tasks (title, memo, status)",
              "VALUES (#{title}, #{memo}, #{status})"})
-    @SelectKey(statement = "call identity()", keyProperty = "id", before = false, resultType = long.class)
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     void insert(Task task);
 
     @Update({"UPDATE tasks",
