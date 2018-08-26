@@ -64,7 +64,8 @@ public class TaskController {
     }
 
     @PostMapping
-    public String create(@Validated Task task, BindingResult result, RedirectAttributes attributes) {
+    public String create(@Validated Task task, BindingResult result,
+                            RedirectAttributes attributes) {
         if (result.hasErrors()) {
             return "tasks/add";
         }
@@ -74,7 +75,8 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    public String update(@PathVariable long id, @Validated Task task, BindingResult result, RedirectAttributes attributes) {
+    public String update(@PathVariable long id, @Validated Task task, BindingResult result,
+                            RedirectAttributes attributes) {
         if (result.hasErrors()) {
             return "tasks/edit";
         }

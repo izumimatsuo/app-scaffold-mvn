@@ -19,6 +19,6 @@ public class ApiAuthenticationEntryPoint implements AuthenticationEntryPoint {
         response.setContentType("application/json");
         response.setCharacterEncoding("utf-8");
         response.getWriter()
-        .println("{\"msg\":\"API User needs Login.\"}");
+            .println("{\"msg\":\"API User needs Login.\"}");
     }
 }
