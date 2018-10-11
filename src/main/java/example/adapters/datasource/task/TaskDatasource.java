@@ -1,6 +1,7 @@
 package example.adapters.datasource.task;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import example.models.task.Task;
@@ -8,6 +9,7 @@ import example.models.task.TaskList;
 import example.models.task.TaskRepository;
 
 @Repository
+@Profile("default")
 public class TaskDatasource implements TaskRepository {
 
     @Autowired

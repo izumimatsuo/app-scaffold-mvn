@@ -15,14 +15,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Transactional
 @AutoConfigureMockMvc
+@ActiveProfiles("dev")
 public class TaskControllerTests {
 
     @Autowired
@@ -97,7 +97,7 @@ public class TaskControllerTests {
     @Test
     @WithMockUser
     public void タスク削除して成功すること() throws Exception {
-        mockMvc.perform(delete("/tasks/1").with(csrf()))
+        mockMvc.perform(delete("/tasks/3").with(csrf()))
             .andExpect(status().isFound())
             .andExpect(view().name("redirect:/tasks"));
     }
